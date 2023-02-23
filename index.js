@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+const path = require('path')
 const querystring = require('querystring')
 const http = require('https')
 let init = {
@@ -11,7 +12,7 @@ let init = {
       'client_secret': 'B7282F38DC454fBFBFF80774Ec4D1772'
    } 
 }
-
+app.use(express.static('public'));
 let searchParams = {
   domesticLocation: 'BHM',
   sortBy: 'notamType'
@@ -32,7 +33,8 @@ const callback = function(response) {
     s = JSON.parse(result.toString());
     //console.log(result.toString());
     app.get('/', function(req, res){
-      res.send(s);
+      res.sendFile(path.join(__dirname, 'public/landingPage.html'))
+      //res.send(s);
    });
   })
 }
