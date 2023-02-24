@@ -58,15 +58,18 @@
       }
       .background-image {
         background-image: url("airplane.jpg");
-        background-size: fill;
+        background-size: auto;
         /* display: block; */
-        height: 100vh;
-        width: 100vw;
-
-        position: fixed;
+        /* height: 50vh;
+        width: 50vw; */
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* position: fixed;
         top: 0;
         right: 0;
-        z-index: -1;
+        z-index: -1; */
         /* filter: blur(5px); */
       }
       .bgimg-1 {
@@ -133,8 +136,8 @@
       id="__yoroi_connector_api_injected_type"
       value="prod"
     />
-    <div class="background-image"></div>
-    <div>
+    <div class="background-image">
+    
       <div class="container">
         <nav>
           <ul>
@@ -147,7 +150,7 @@
             hazards in real time!
           </h1>
           <img
-            src="img3.png"
+            src="img3.png" 
             alt="Alert pilots of potential hazards in real time!"
           />
           <button type="button" class="btn btn-primary btn-lg">Try now!</button>
@@ -182,7 +185,8 @@
         <a class="active">NOCAP NOTAMs</a>
       </div> -->
     </div>
-
+  </div>
+</div>
     <!-- <p style="padding: 5px 15px">
       This example creates a full page background image. Try to resize the
       browser window to see how it always will cover the full screen (when
