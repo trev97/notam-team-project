@@ -13,9 +13,10 @@
       .container {
         width: 80%;
         margin: 0 auto;
+        text-align: center;
       }
       nav {
-        background-color: blue;
+        background-color: #17379c;
         color: white;
         height: 50px;
         width: auto;
@@ -44,7 +45,7 @@
       nav a:hover {
         background-color: white;
         filter: 8px;
-        color: blue;
+        color: #17379c;
       }
 
       .bgimg-1,
@@ -61,7 +62,7 @@
         /* display: block; */
         height: 100vh;
         width: 100vw;
-        
+
         position: fixed;
         top: 0;
         right: 0;
@@ -93,7 +94,7 @@
       .content {
         margin-top: 50px;
         overflow: hidden;
-        background-color: rgba(255,255,255,0.8);
+        background-color: rgba(255, 255, 255, 0.8);
         padding: 16px;
         backdrop-filter: blur(10px);
         backdrop-filter: brightness(150%);
@@ -110,17 +111,29 @@
         float: right;
         width: 50%;
       }
+      .btn-group-lg > .btn,
+      .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+      }
+
+      .btn-primary {
+        color: #fff;
+        background-color: #17379c;
+        border-color: #17379c;
+      }
     </style>
   </head>
 
   <body data-new-gr-c-s-check-loaded="14.1098.0" data-gr-ext-installed="">
     <input
-    type="hidden"
-    id="__yoroi_connector_api_injected_type"
-    value="prod"
-  />
-  <div class="background-image">
-  </div>
+      type="hidden"
+      id="__yoroi_connector_api_injected_type"
+      value="prod"
+    />
+    <div class="background-image"></div>
     <div>
       <div class="container">
         <nav>
@@ -128,40 +141,42 @@
             <li><a href="#">NOCAP NOTAMs</a></li>
           </ul>
         </nav>
-
-       
-          <h1>Alert pilots of potential <br> hazards in real time!</h1>
+        <div class="container">
+          <h1>
+            Alert pilots of potential <br />
+            hazards in real time!
+          </h1>
           <img
             src="img3.png"
             alt="Alert pilots of potential hazards in real time!"
           />
-        
-        
-          <div class="section left-section">
-            <h2>What are NOTAMs?</h2>
-            <p>
-              NOTAMs (Notice to Airmen) are notices containing information
-              concerning the establishment, condition, or change in any
-              component of aviation facilities, services, procedures or hazards,
-              the timely knowledge of which is essential to personnel concerned
-              with flight operations. NOTAMs are issued by aviation authorities
-              to alert pilots to potential hazards or changes that may affect
-              their flight planning and safety.
-            </p>
-          </div>
-          
-          <div class="section right-section">
-            <h2>What do we do?</h2>
-            <p>
-              Our service provides real-time alerts to pilots of potential
-              hazards based on NOTAMs and other data sources. We use advanced
-              technologies such as machine learning and data analytics to
-              process large volumes of aviation data and provide timely and
-              accurate information to pilots. Our goal is to enhance aviation
-              safety and help prevent accidents and incidents.
-            </p>
-          </div>
-        
+          <button type="button" class="btn btn-primary btn-lg">Try now!</button>
+        </div>
+
+        <div class="section left-section">
+          <h2>What are NOTAMs?</h2>
+          <p>
+            NOTAMs (Notice to Airmen) are notices containing information
+            concerning the establishment, condition, or change in any component
+            of aviation facilities, services, procedures or hazards, the timely
+            knowledge of which is essential to personnel concerned with flight
+            operations. NOTAMs are issued by aviation authorities to alert
+            pilots to potential hazards or changes that may affect their flight
+            planning and safety.
+          </p>
+        </div>
+
+        <div class="section right-section">
+          <h2>What do we do?</h2>
+          <p>
+            Our service provides real-time alerts to pilots of potential hazards
+            based on NOTAMs and other data sources. We use advanced technologies
+            such as machine learning and data analytics to process large volumes
+            of aviation data and provide timely and accurate information to
+            pilots. Our goal is to enhance aviation safety and help prevent
+            accidents and incidents.
+          </p>
+        </div>
       </div>
       <!-- <div class="topnav">
         <a class="active">NOCAP NOTAMs</a>
