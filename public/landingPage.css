@@ -9,15 +9,26 @@
 .container {
     height: 100vh;
     width: 100%;
-    background: linear-gradient(to right, #93C572 70%, #C8EBB1 30%);
+    background: center;
     position: relative;
     overflow: hidden;
+    background-position: 50% 50%;
 }
 .wave {
-    position: absolute;
+    position: center;
     top: 0;
     right: 30%;
 }
+
+.hero-image {
+    background-image: url("airplane.jpg"); /* The image used */
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 700px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+  }
+
 nav {
     width: 90%;
     margin: auto;
@@ -50,7 +61,7 @@ nav ul a::after{
     top:0;
     left:0px;
     border-radius: 20px;
-    background-color: #C8EBB1;
+    background-color: #119cdd;
     z-index: -1;
     transition: 0.5s;
 }
@@ -88,7 +99,7 @@ nav ul a:hover:after{
     font-size: 18px;
     padding: 0.5rem 2.5rem 0.5rem 1rem;
     border-radius: 0 50% 50% 0;
-    background-color: #494234;
+    background-color: #1271df;
     color: white;
     cursor: pointer;
 }
@@ -152,7 +163,7 @@ nav ul a:hover:after{
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background-color: #93C572;
+    background-color: #1271df;
     display: inline-flex;
     align-items: center;
     justify-content: center;
