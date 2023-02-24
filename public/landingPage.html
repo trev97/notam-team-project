@@ -1,106 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <input
+    type="hidden"
+    id="__yoroi_connector_api_injected_type"
+    value="prod"
+  /><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font: 400 15px/1.8 "Lato", sans-serif;
+        color: #0e70fa;
+      }
+      .topnav {
+        background-color: #0e70fa;
+        overflow: hidden;
+      }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" 
-integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="landingPage.css">
-</head>
+      /* Style the links inside the navigation bar */
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
 
-<body>
-    <div class="container">
-        <div class="hero-image">
-            <div class="right"><img src="img3.png" alt=""></div>
-            <!-- <img src="airplane.jpg" alt=""> -->
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                  <div class="navbar-header">
-                    <a class="navbar-brand" href="#">WebSiteName</a>
-                  </div>
-                  <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Page 1</a></li>
-                    <li><a href="#">Page 2</a></li>
-                  </ul>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                  </ul>
-                </div>
-              </nav>
-        </div>
+      /* Change the color of links on hover */
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
 
-        
+      /* Add a color to the active/current link */
+      .topnav a.active {
+        background-color: #0e70fa;
+        color: white;
+      }
+      .bgimg-1,
+      .bgimg-2,
+      .bgimg-3 {
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .bgimg-1 {
+        background-image: url("airplane.jpg");
+        height: 100%;
+      }
 
-        <div class="main-content">
+      .caption {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        color: #000;
+      }
 
-            <div class="image-pista">
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="img1.png" alt=""></div>
-                        <div class="swiper-slide"><img src="img2.png" alt=""></div>
-                        <div class="swiper-slide"><img src="img3.png" alt=""></div>    
-                    </div> 
-                </div>
-            </div>
-            <div class="main-text">
-                <h1>NOCAP NOTAMs</h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.adipisicing elit.</p>
-                <button>Know More</button>
-            </div>
-        </div>
+      .caption span.border {
+        background-color: #111;
+        color: #fff;
+        padding: 18px;
+        font-size: 25px;
+        letter-spacing: 10px;
+      }
 
-        <div class="right">
-            <div class="box">
-                <div class="image">
-                    <img src="img4.png" alt="">
-                </div>
-                <div class="inner-box">
-                    <h3>100% Organic</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="img5.png" alt="">
-                </div>
-                <div class="inner-box">
-                    <h3>Not Expensive</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="img6.png" alt="">
-                </div>
-                <div class="inner-box">
-                    <h3>Super Healthy</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="social-links">
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="far fa-envelope"></i>
-        </div>
+      h3 {
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font: 20px "Lato", sans-serif;
+        color: #111;
+      }
+    </style>
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1098.0" data-gr-ext-installed="">
+    <div class="bgimg-1">
+      <div class="topnav">
+        <a class="active">NOCAP NOTAMs</a>
+      </div>
     </div>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-          slidesPerView: 1,
-          spaceBetween: 30,
-          loop: true,
-        });
-      </script>
-</body>
 
+    <!-- <p style="padding: 5px 15px">
+      This example creates a full page background image. Try to resize the
+      browser window to see how it always will cover the full screen (when
+      scrolled to top), and that it scales nicely on all screen sizes.
+    </p> -->
+  </body>
 </html>
