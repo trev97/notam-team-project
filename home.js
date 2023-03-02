@@ -3,7 +3,7 @@ const path = require('path')
 var router = express.Router();
 
 router.get('/', function(req, res){
-   rres.sendFile(path.join(__dirname, 'public/homePage.html'))
+   res.sendFile(path.join(__dirname, 'public/homePage.html'))
 });
 router.post('/', function(req, res){
    res.send('POST route on home.');

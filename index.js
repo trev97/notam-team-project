@@ -32,6 +32,7 @@ const callback = function(response) {
   response.on('end', function() {
     // result has response body buffer
     s = JSON.parse(result.toString());
+    s.items[0].properties.coreNOTAMData.notamTranslation[0].formattedText;
     //console.log(result.toString());
     app.get('/', function(req, res){
       res.sendFile(path.join(__dirname, 'public/landingPage.html'))
