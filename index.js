@@ -3,6 +3,7 @@ var app = express();
 const path = require('path')
 const querystring = require('querystring')
 const http = require('https')
+let home = require('./home.js')
 let init = {
    host : 'external-api.faa.gov',
    path: "/notamapi/v1/notams",
@@ -38,6 +39,8 @@ const callback = function(response) {
    });
   })
 }
+
+app.use('/home', home)
 
 const req = http.request(init, callback);
 req.end();
