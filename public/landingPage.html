@@ -1,98 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font: 400 15px/1.8 "Lato", sans-serif;
+        color: #000000;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      nav {
+        background-color: #17379c;
+        color: white;
+        height: 50px;
+        width: auto;
+        display: flex;
+        justify-content: flex-start;
+      }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" 
-integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="landingPage.css">
-</head>
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
 
-<body>
-    <div class="container">
-        <div class="wave">
-            <img src="bg.png" alt="">
-        </div>
+      nav li {
+        display: inline-block;
+        margin-right: 20px;
+      }
 
+      nav a {
+        display: inline-block;
+        color: white;
+        padding: 15px;
+        text-decoration: none;
+      }
+
+      /* nav a:hover {
+        /* background-color: white; 
+        filter: 8px;
+        color: #17379c;
+      } */
+
+      .bgimg-1,
+      .bgimg-2,
+      .bgimg-3 {
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .background-image {
+        background-image: url("airplane.jpg");
+        background-size: auto;
+        /* display: block; */
+        /* height: 50vh;
+        width: 50vw; */
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* position: fixed;
+        top: 0;
+        right: 0;
+        z-index: -1; */
+        /* filter: blur(5px); */
+      }
+      .bgimg-1 {
+        background-image: url("airplane.jpg");
+        height: 100%;
+      }
+
+      h3 {
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font: 20px "Lato", sans-serif;
+        color: #111;
+      }
+      .middle-section {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .middle-section img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+      }
+
+      .content {
+        margin-top: 50px;
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 16px;
+        backdrop-filter: blur(10px);
+        backdrop-filter: brightness(150%);
+        backdrop-filter: opacity(20%);
+        border-radius: 16px;
+      }
+
+      .left-section {
+        float: left;
+        width: 50%;
+      }
+
+      .right-section {
+        float: right;
+        width: 50%;
+      }
+      .btn-group-lg > .btn,
+      .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+      }
+
+      .btn-primary {
+        color: #fff;
+        background-color: #17379c;
+        border-color: #17379c;
+      }
+    </style>
+  </head>
+
+  <body data-new-gr-c-s-check-loaded="14.1098.0" data-gr-ext-installed="">
+    <input
+      type="hidden"
+      id="__yoroi_connector_api_injected_type"
+      value="prod"
+    />
+    <div class="background-image">
+    
+      <div class="container">
         <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Service</a></li>
-                <li><a href="#">Types</a></li>
-                <li><a href="#">FAQ</a></li>
-            </ul>
-            <img src="logo.png" alt="">
+          <ul>
+            <li><a href="#">NOCAP NOTAMs</a></li>
+          </ul>
         </nav>
-
-        <div class="main-content">
-
-            <div class="image-pista">
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="img1.png" alt=""></div>
-                        <div class="swiper-slide"><img src="img2.png" alt=""></div>
-                        <div class="swiper-slide"><img src="img3.png" alt=""></div>    
-                    </div> 
-                </div>
-            </div>
-            <div class="main-text">
-                <h1>The Pistachios</h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.adipisicing elit.</p>
-                <button>Know More</button>
-            </div>
+        <div class="container">
+          <h1>
+            Alert pilots of potential <br />
+            hazards in real time!
+          </h1>
+          <img
+            src="img3.png" 
+            alt="Alert pilots of potential hazards in real time!"
+          />
+          <br></br>
+          <button type="button" class="btn btn-primary btn-lg">Try now!</button>
         </div>
 
-        <div class="right">
-            <div class="box">
-                <div class="image">
-                    <img src="img4.png" alt="">
-                </div>
-                <div class="inner-box">
-                    <h3>100% Organic</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="img5.png" alt="">
-                </div>
-                <div class="inner-box">
-                    <h3>Not Expensive</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="img6.png" alt="">
-                </div>
-                <div class="inner-box">
-                    <h3>Super Healthy</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
+        <div class="section left-section">
+          <h2>What are NOTAMs?</h2>
+          <p>
+            NOTAMs (Notice to Airmen) are notices containing information
+            concerning the establishment, condition, or change in any component
+            of aviation facilities, services, procedures or hazards, the timely
+            knowledge of which is essential to personnel concerned with flight
+            operations. NOTAMs are issued by aviation authorities to alert
+            pilots to potential hazards or changes that may affect their flight
+            planning and safety.
+          </p>
         </div>
 
-        <div class="social-links">
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="far fa-envelope"></i>
+        <div class="section right-section">
+          <h2>What do we do?</h2>
+          <p>
+            Our service provides real-time alerts to pilots of potential hazards
+            based on NOTAMs and other data sources. We use advanced technologies
+            such as machine learning and data analytics to process large volumes
+            of aviation data and provide timely and accurate information to
+            pilots. Our goal is to enhance aviation safety and help prevent
+            accidents and incidents.
+          </p>
         </div>
+      </div>
+      <!-- <div class="topnav">
+        <a class="active">NOCAP NOTAMs</a>
+      </div> -->
     </div>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-          slidesPerView: 1,
-          spaceBetween: 30,
-          loop: true,
-        });
-      </script>
-</body>
-
+  </div>
+</div>
+    <!-- <p style="padding: 5px 15px">
+      This example creates a full page background image. Try to resize the
+      browser window to see how it always will cover the full screen (when
+      scrolled to top), and that it scales nicely on all screen sizes.
+    </p> -->
+  </body>
 </html>
