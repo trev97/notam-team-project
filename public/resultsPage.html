@@ -1,0 +1,64 @@
+<!-- // MEDIUM -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DataTables Guide</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <!-- Bootstrap 5 JS -->
+  <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div style="margin-top:5%;"></div>
+
+  <div class="container" style="width:60%;">
+    <table id="example">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">effectiveStart</th>
+                <th scope="col">effectiveEnd</th>
+                <th scope="col">text</th>
+            </tr>
+        </thead>
+    </table>
+  </div>
+
+<!-- TABLE -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"></script>
+
+<script type="text/javascript" class="init">
+
+$(document).ready(function() {
+  // Create a new DataTable object
+  table = $('#example').DataTable({
+       "lengthMenu": [ [15, 50, 100, -1], [15, 50, 100, "All"] ],
+       "pagingType": "simple",
+       scrollY: 400,
+       scrollCollapse: true,
+       order: [[ 0, 'asc' ], [3, 'desc' ]],
+       ajax: {
+         url: '/exampleData',
+       },
+       columns: [
+           { data: 'id' },
+           { data: 'effectiveStart' },
+           { data: 'effectiveEnd' },
+           { data: 'text' }
+         ]
+       })
+});
+
+</script>
+
+</body>
+

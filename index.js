@@ -3,6 +3,7 @@ var app = express();
 const path = require('path')
 const querystring = require('querystring')
 const http = require('https')
+let home = require('./home.js')
 let init = {
    host : 'external-api.faa.gov',
    path: "/notamapi/v1/notams",
@@ -31,6 +32,7 @@ const callback = function(response) {
   response.on('end', function() {
     // result has response body buffer
     s = JSON.parse(result.toString());
+    s.items[0].properties.coreNOTAMData.notamTranslation[0].formattedText;
     //console.log(result.toString());
     app.get('/', function(req, res){
       res.sendFile(path.join(__dirname, 'public/landingPage.html'))
@@ -38,6 +40,8 @@ const callback = function(response) {
    });
   })
 }
+
+app.use('/home', home)
 
 const req = http.request(init, callback);
 req.end();
