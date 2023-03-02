@@ -46,7 +46,6 @@
         filter: 8px;
         color: #17379c;
       } */
-
       /* Style the list */
       ul.breadcrumb {
         padding: 10px 16px;
@@ -157,12 +156,6 @@
         background-color: #2980b9;
       }
 
-      .grid-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 10px;
-      }
-
       .option {
         display: flex;
         align-items: center;
@@ -199,23 +192,15 @@
         </ul>
       </nav>
     </div>
+
     <div class="container">
       <ul class="breadcrumb">
         <li><a href="#">Home</a></li>
         <li></li>
-        <!-- <li>Italy</li> -->
       </ul>
     </div>
 
     <div class="container">
-      <!-- <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div> -->
       <form action="#" class="search-form">
         <select name="options" id="options">
           <option value="location">location</option>
@@ -227,7 +212,7 @@
         </select>
         <input type="text" placeholder="Enter Starting Location..." />
         <input type="text" placeholder="Enter Destination Location..." />
-        <button>Search</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='/results';">Search</button>
       </form>
     </div>
 
