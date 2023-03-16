@@ -89,63 +89,87 @@
     <div class="container">
       <nav>
         <ul>
-          <li><a href='/'>NOCAP NOTAMs</a></li>
+          <li><a href="/">NOCAP NOTAMs</a></li>
         </ul>
       </nav>
     </div>
 
     <div class="container">
       <ul class="breadcrumb">
-        <li><a href="#"onclick="window.location.href='/home';">Home</a></li>
-        <li><a>Current</a></li>
+        <li><a href="#" onclick="window.location.href='/home';">Home</a></li>
+        <li><a>NOTAMS</a></li>
       </ul>
     </div>
 
-    <div style="margin-top:5%;"></div>
+    <div style="margin-top: 5%"></div>
 
-    <div class="container" style="width:60%;">
+    <div class="container" style="width: 60%">
       <table id="example">
-          <thead>
-              <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">effectiveStart</th>
-                  <th scope="col">effectiveEnd</th>
-                  <th scope="col">text</th>
-              </tr>
-          </thead>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">effectiveStart</th>
+            <th scope="col">effectiveEnd</th>
+            <th scope="col">text</th>
+          </tr>
+        </thead>
       </table>
     </div>
 
-<!-- TABLE -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
-<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"></script>
+    <!-- TABLE -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css"
+    />
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://code.jquery.com/jquery-3.5.1.js"
+    ></script>
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"
+    ></script>
 
-<script type="text/javascript" class="init">
-
-$(document).ready(function() {
-  // Create a new DataTable object
-  table = $('#example').DataTable({
-       "lengthMenu": [ [15, 50, 100, -1], [15, 50, 100, "All"] ],
-       "pagingType": "simple",
-       scrollY: 400,
-       scrollCollapse: true,
-       order: [[ 0, 'asc' ], [3, 'desc' ]],
-       ajax: {
-         url: '/exampleData',
-       },
-       columns: [
-           { data: 'id' },
-           { data: 'effectiveStart' },
-           { data: 'effectiveEnd' },
-           { data: 'text' }
-         ]
-       })
-});
-
-</script>
+    <script type="text/javascript" class="init">
+      $(document).ready(function () {
+        // Create a new DataTable object
+        table = $("#example").DataTable({
+          lengthMenu: [
+            [15, 50, 100, -1],
+            [15, 50, 100, "All"],
+          ],
+          pagingType: "simple",
+          scrollY: 400,
+          scrollCollapse: true,
+          order: [
+            [0, "asc"],
+            [3, "desc"],
+          ],
+          ajax: {
+            url: "/exampleData",
+          },
+          columns: [
+            { data: "id" },
+            { data: "effectiveStart" },
+            { data: "effectiveEnd" },
+            { data: "text" },
+          ],
+        });
+      });
+    </script>
 
     <!-- <p style="padding: 5px 15px">
       This example creates a full page background image. Try to resize the
