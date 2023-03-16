@@ -4,6 +4,7 @@ const path = require('path')
 const querystring = require('querystring')
 const http = require('https')
 let home = require('./home.js')
+let results = require('./results.js')
 const fs = require('fs');
 let init = {
    host : 'external-api.faa.gov',
@@ -50,11 +51,14 @@ const callback = function(response) {
     //console.log(result.toString());
     app.get('/', function(req, res){
       res.sendFile(path.join(__dirname, 'public/landingPage.html'))
+      // res.download('./public/notam.csv')
    });
   })
 }
 
 app.use('/home', home)
+
+app.use('/results', results)
 
 const req = http.request(init, callback);
 req.end();
