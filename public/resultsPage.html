@@ -1,33 +1,120 @@
-<!-- // MEDIUM -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font: 400 12px/1.8 "Lato", sans-serif;
+        color: #000000;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+      }
+      nav {
+        background-color: #17379c;
+        color: white;
+        height: 50px;
+        width: auto;
+        display: flex;
+        justify-content: flex-start;
+      }
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>DataTables Guide</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <!-- Bootstrap 5 JS -->
-  <script src="js/bootstrap.min.js"></script>
-</head>
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
 
-<body>
-  <div style="margin-top:5%;"></div>
+      nav li {
+        display: inline-block;
+        margin-right: 20px;
+      }
 
-  <div class="container" style="width:60%;">
-    <table id="example">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">effectiveStart</th>
-                <th scope="col">effectiveEnd</th>
-                <th scope="col">text</th>
-            </tr>
-        </thead>
-    </table>
-  </div>
+      nav a {
+        display: inline-block;
+        color: white;
+        padding: 15px;
+        text-decoration: none;
+      }
+
+      /* nav a:hover {
+        /* background-color: white; 
+        filter: 8px;
+        color: #17379c;
+      } */
+      /* Style the list */
+      ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        background-color: #eee;
+      }
+
+      /* Display list items side by side */
+      ul.breadcrumb li {
+        display: inline;
+        font-size: 8px;
+      }
+
+      /* Add a slash symbol (/) before/behind each list item */
+      ul.breadcrumb li + li:before {
+        padding: 8px;
+        color: black;
+        content: "/\00a0";
+      }
+
+      /* Add a color to all links inside the list */
+      ul.breadcrumb li a {
+        color: #0275d8;
+        text-decoration: none;
+      }
+
+      /* Add a color on mouse-over */
+      ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body data-new-gr-c-s-check-loaded="14.1098.0" data-gr-ext-installed="">
+    <input
+      type="hidden"
+      id="__yoroi_connector_api_injected_type"
+      value="prod"
+    />
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href='/'>NOCAP NOTAMs</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container">
+      <ul class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <div style="margin-top:5%;"></div>
+
+    <div class="container" style="width:60%;">
+      <table id="example">
+          <thead>
+              <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">effectiveStart</th>
+                  <th scope="col">effectiveEnd</th>
+                  <th scope="col">text</th>
+              </tr>
+          </thead>
+      </table>
+    </div>
 
 <!-- TABLE -->
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
@@ -60,5 +147,10 @@ $(document).ready(function() {
 
 </script>
 
-</body>
-
+    <!-- <p style="padding: 5px 15px">
+      This example creates a full page background image. Try to resize the
+      browser window to see how it always will cover the full screen (when
+      scrolled to top), and that it scales nicely on all screen sizes.
+    </p> -->
+  </body>
+</html>
