@@ -6,6 +6,8 @@ const http = require('https')
 let home = require('./home.js')
 let results = require('./results.js')
 const fs = require('fs');
+const axios = require("axios");
+
 let init = {
    host : 'external-api.faa.gov',
    path: "/notamapi/v1/notams",
@@ -62,5 +64,27 @@ app.use('/results', results)
 
 const req = http.request(init, callback);
 req.end();
+
+app.get("/exampleData", function (req, res) {
+
+  // Make a request
+  axios.get('https://external-api.faa.gov/notamapi/v1/notams?domesticLocation=BHM&sortBy=notamType', {headers: {
+    'client_id': '4e25e8c041d142d9b263f03aa74be97e',
+    'client_secret': 'B7282F38DC454fBFBFF80774Ec4D1772'
+    } 
+  })
+    .then(response => {
+      // send the collected data back to the client-side DataTable
+      //console.log(response);
+      res.json({
+        "data": response.data.items
+      })
+    })
+    .catch(function (error) {
+       // handle error
+       console.log(error);
+       res.json({"error": error});
+    })
+});
 
 app.listen(3000);
