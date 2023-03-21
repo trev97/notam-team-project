@@ -35,10 +35,19 @@ const callback = function(response) {
     // result has response body buffer
     s = JSON.parse(result.toString());
     let text;
-    for(const formattedText of s.items)
-      text += formattedText.properties.coreNOTAMData.notamTranslation[0].formattedText + ',';
-      fs.writeFile("./public/notam.csv", text,function(err){
-      })
+    let fullText = "Notams\n";
+    for(const notam of s.items){
+      text = notam.properties.coreNOTAMData.notamTranslation[0].formattedText;
+      if(text!= undefined){
+        text = text.replaceAll(",", "")
+        text = text.replaceAll("\n", "")
+        text += "\n"
+      }
+      fullText += text
+    }
+    fullText = fullText.replaceAll("undefined", "")
+    fs.writeFile("./public/notam.csv", fullText,function(err){})
+
     //console.log(result.toString());
     app.get('/', function(req, res){
       res.sendFile(path.join(__dirname, 'public/landingPage.html'))

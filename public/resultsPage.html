@@ -143,33 +143,29 @@
       src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"
     ></script>
 
-    <script type="text/javascript" class="init">
-      $(document).ready(function () {
-        // Create a new DataTable object
-        table = $("#example").DataTable({
-          lengthMenu: [
-            [15, 50, 100, -1],
-            [15, 50, 100, "All"],
-          ],
-          pagingType: "simple",
-          scrollY: 400,
-          scrollCollapse: true,
-          order: [
-            [0, "asc"],
-            [3, "desc"],
-          ],
-          ajax: {
-            url: "/exampleData",
-          },
-          columns: [
-            { data: "id" },
-            { data: "effectiveStart" },
-            { data: "effectiveEnd" },
-            { data: "text" },
-          ],
-        });
-      });
-    </script>
+<script type="text/javascript" class="init">
+
+$(document).ready(function() {
+  // Create a new DataTable object
+  table = $('#example').DataTable({
+       "lengthMenu": [ [15, 50, 100, -1], [15, 50, 100, "All"] ],
+       "pagingType": "simple",
+       scrollY: 400,
+       scrollCollapse: true,
+       order: [[ 0, 'asc' ], [3, 'desc' ]],
+       ajax: {
+         url: '/exampleData',
+       },
+       columns: [
+           { data: 'id' },
+           { data: 'effectiveStart' },
+           { data: 'effectiveEnd' },
+           { data: 'text' }
+         ]
+       })
+});
+
+</script>
 
     <!-- <p style="padding: 5px 15px">
       This example creates a full page background image. Try to resize the
