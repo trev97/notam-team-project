@@ -134,7 +134,8 @@ $(document).ready(function() {
        scrollCollapse: true,
        order: [[ 0, 'asc' ], [3, 'desc' ]],
        ajax: {
-         url: '/exampleData',
+         url: '/results/exampleData',
+         data: {location: "BHM"}
        },
        columns: [
            { data: 'properties.coreNOTAMData.notam.id' },
