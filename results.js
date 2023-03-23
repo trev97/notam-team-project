@@ -14,8 +14,8 @@ router.get("/exampleData", function (req, res) {
 
    let urlParams = new URLSearchParams(req.query);
  
-   let x = 'https://external-api.faa.gov/notamapi/v1/notams?domesticLocation=' + urlParams.get('location') + '&sortBy=notamType';
- 
+   let x = 'https://external-api.faa.gov/notamapi/v1/notams?domesticLocation=' + urlParams.get('startingLocation') + '&sortBy=notamType';
+   
    // Make a request
    axios.get(x, {headers: {
      'client_id': '4e25e8c041d142d9b263f03aa74be97e',

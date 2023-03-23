@@ -89,63 +89,51 @@
     <div class="container">
       <nav>
         <ul>
-          <li><a href="/">NOCAP NOTAMs</a></li>
+          <li><a href='/'>NOCAP NOTAMs</a></li>
         </ul>
       </nav>
     </div>
 
     <div class="container">
       <ul class="breadcrumb">
-        <li><a href="#" onclick="window.location.href='/home';">Home</a></li>
-        <li><a>NOTAMS</a></li>
+        <li><a href="#"onclick="window.location.href='/home';">Home</a></li>
+        <li><a>Current</a></li>
       </ul>
     </div>
 
-    <div style="margin-top: 5%"></div>
+    <div style="margin-top:5%;"></div>
 
-    <div class="container" style="width: 60%">
+    <div class="container" style="width:60%;">
       <table id="example">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">effectiveStart</th>
-            <th scope="col">effectiveEnd</th>
-            <th scope="col">text</th>
-          </tr>
-        </thead>
+          <thead>
+              <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">effectiveStart</th>
+                  <th scope="col">effectiveEnd</th>
+                  <th scope="col">text</th>
+              </tr>
+          </thead>
       </table>
     </div>
 
-    <!-- TABLE -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css"
-    />
-    <script
-      type="text/javascript"
-      language="javascript"
-      src="https://code.jquery.com/jquery-3.5.1.js"
-    ></script>
-    <script
-      type="text/javascript"
-      language="javascript"
-      src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      language="javascript"
-      src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"
-    ></script>
+<!-- TABLE -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"></script>
 
 <script type="text/javascript" class="init">
 
 $(document).ready(function() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const startingLocation = urlParams.get('startingLocation');
+  const destinationLocation = urlParams.get('destinationLocation');
+  console.log(startingLocation);
+  console.log(destinationLocation);
+
+  
   // Create a new DataTable object
   table = $('#example').DataTable({
        "lengthMenu": [ [15, 50, 100, -1], [15, 50, 100, "All"] ],
@@ -155,13 +143,13 @@ $(document).ready(function() {
        order: [[ 0, 'asc' ], [3, 'desc' ]],
        ajax: {
          url: '/results/exampleData',
-         data: {location: "BHM"}
+         data: {startingLocation: startingLocation},
        },
        columns: [
-           { data: 'id' },
-           { data: 'effectiveStart' },
-           { data: 'effectiveEnd' },
-           { data: 'text' }
+           { data: 'properties.coreNOTAMData.notam.id' },
+           { data: 'properties.coreNOTAMData.notam.effectiveStart' },
+           { data: 'properties.coreNOTAMData.notam.effectiveEnd' },
+           { data: 'properties.coreNOTAMData.notam.text' }
          ]
        })
 });
