@@ -97,7 +97,7 @@
     <div class="container">
       <ul class="breadcrumb">
         <li><a href="#"onclick="window.location.href='/home';">Home</a></li>
-        <li><a>Current</a></li>
+        <li><a>NOTAMs</a></li>
       </ul>
     </div>
 
@@ -125,15 +125,25 @@
 
 <script type="text/javascript" class="init">
 
-$(document).ready(function() {
+$(document).ready(async function() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const startingLocation = urlParams.get('startingLocation');
   const destinationLocation = urlParams.get('destinationLocation');
   console.log(startingLocation);
   console.log(destinationLocation);
-
   
+  var call1 = await $.ajax({
+         url: '/results/exampleData',
+         data: {location: startingLocation}
+  });
+  var call2 = await $.ajax({
+         url: '/results/exampleData',
+         data: {location: destinationLocation}
+  });
+
+  var ldata = call1.data.concat(call2.data);
+
   // Create a new DataTable object
   table = $('#example').DataTable({
        "lengthMenu": [ [15, 50, 100, -1], [15, 50, 100, "All"] ],
@@ -141,10 +151,7 @@ $(document).ready(function() {
        scrollY: 400,
        scrollCollapse: true,
        order: [[ 0, 'asc' ], [3, 'desc' ]],
-       ajax: {
-         url: '/results/exampleData',
-         data: {startingLocation: startingLocation},
-       },
+       data: ldata,
        columns: [
            { data: 'properties.coreNOTAMData.notam.id' },
            { data: 'properties.coreNOTAMData.notam.effectiveStart' },
