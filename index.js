@@ -46,7 +46,7 @@ const callback = function(response) {
         notams.push(text);
       }
     }
-
+    console.log(notams);
     // Spawn a new Python process to classify the NOTAMs
     const pythonScript = spawn('python', ['notam_cat.py']);
     // Pass the array of NOTAMs as a JSON array to the Python script through standard input

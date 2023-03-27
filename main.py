@@ -33,12 +33,13 @@ y_pred = model.predict(X_test_vectorized)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Accuracy: {accuracy}")
 
+# Save the trained model and vectorizer to disk using pickle
+with open('model.pkl', 'wb') as f:
+    pickle.dump(model, f)
+    
+with open('vectorizer.pkl', 'wb') as f:
+    pickle.dump(vectorizer, f)
 
-# Save the trained model as a pickle string.
-saved_model = pickle.dumps(model)
-
-joblib.dump(model, 'notamCat.pkl')
-joblib.dump(vectorizer, 'vec.pkl')
 
 new_text = ["M0002/23 NOTAMN \n"
 "Q) ZLA/QMXHW/IV/M/A/000/999/3251N11423W005 \n"

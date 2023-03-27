@@ -6,8 +6,11 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
 # Load the trained model and vectorizer
-model = pickle.load(open('notamCat.pkl', 'rb'))
-vectorizer = pickle.load(open('vec.pkl', 'rb'))
+with open('model.pkl', 'rb') as f:
+    model = pickle.load(f)
+    
+with open('vectorizer.pkl', 'rb') as f:
+    vectorizer = pickle.load(f)
 
 # Read the array of NOTAM strings from standard input
 input_str = sys.stdin.read()
