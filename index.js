@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 const path = require('path')
+app.use(express.static('public'));
 //const querystring = require('querystring')
 //const http = require('https')
 let home = require('./home.js')
@@ -15,7 +16,7 @@ let init = {
       'client_secret': 'B7282F38DC454fBFBFF80774Ec4D1772'
    } 
 }
-app.use(express.static('public'));
+
 let searchParams = {
   domesticLocation: 'BHM',
   sortBy: 'notamType'

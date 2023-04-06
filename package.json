@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon -e js,html index.js"
+    "dev": "nodemon -e js,html index.js",
+    "install": "pip3 install -r requirements.txt" 
   },
   "repository": {
     "type": "git",
