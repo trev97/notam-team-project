@@ -188,7 +188,7 @@
     <div class="container">
       <nav>
         <ul>
-          <li><a href='/'>NOCAP NOTAMs</a></li>
+          <li><a href="/">NOCAP NOTAMs</a></li>
         </ul>
       </nav>
     </div>
@@ -210,9 +210,33 @@
           <option value="option#5">Lorem ipsum dolor</option>
           <option value="option#5">Lorem ipsum dolor</option>
         </select>
-        <input type="text" placeholder="Enter Starting Location..." />
-        <input type="text" placeholder="Enter Destination Location..." />
-        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='/results';">Search</button>
+        <input
+          type="text"
+          placeholder="Enter Starting Location..."
+          id="startingLocationValue"
+        />
+        <input
+          type="text"
+          placeholder="Enter Destination Location..."
+          id="destinationLocationValue"
+        />
+        <button
+          type="button"
+          class="btn btn-primary btn-lg"
+          onclick="getInputValues()"
+        >
+          Search
+        </button>
+        <script>
+          // Defining custom functions
+          function getInputValues() {
+            var startingLocationValue = document.getElementById("startingLocationValue").value;
+            var destinationLocationValue = document.getElementById("destinationLocationValue").value;
+            window.location.href='/results/?startingLocation='+ startingLocationValue+'&destinationLocation='+destinationLocationValue;
+            console.log(startingLocationValue);
+            console.log(destinationLocationValue);
+          }
+        </script>
       </form>
     </div>
 
