@@ -1,11 +1,11 @@
 var express = require('express');
 var app = express();
 const path = require('path')
-const querystring = require('querystring')
-const http = require('https')
+//const querystring = require('querystring')
+//const http = require('https')
 let home = require('./home.js')
 let results = require('./results.js')
-const fs = require('fs');
+/*const fs = require('fs');
 let init = {
    host : 'external-api.faa.gov',
    path: "/notamapi/v1/notams",
@@ -47,20 +47,23 @@ const callback = function(response) {
     }
     fullText = fullText.replaceAll("undefined", "")
     fs.writeFile("./public/notam.csv", fullText,function(err){})
-
     //console.log(result.toString());
     app.get('/', function(req, res){
       res.sendFile(path.join(__dirname, 'public/landingPage.html'))
       // res.download('./public/notam.csv')
    });
   })
-}
+} */
 
+
+app.get('/', function(req, res){
+  res.sendFile(path.join(__dirname, 'public/landingPage.html'))
+})
 app.use('/home', home)
 
 app.use('/results', results)
 
-const req = http.request(init, callback);
-req.end();
+//const req = http.request(init, callback);
+//req.end();
 
 app.listen(3000);
