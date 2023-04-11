@@ -8,7 +8,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score
 
 # Load the CSV file into a Pandas DataFrame
-df = pd.read_csv('random.csv')
+df = pd.read_csv('All_Rand.csv')
 
 # Shuffle the DataFrame rows randomly
 df = df.sample(frac=1, random_state=42)
