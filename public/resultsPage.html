@@ -14,6 +14,7 @@
         width: 80%;
         margin: 0 auto;
       }
+
       nav {
         background-color: #17379c;
         color: white;
@@ -21,6 +22,7 @@
         width: auto;
         display: flex;
         justify-content: flex-start;
+        font-size: 15px;
       }
 
       nav ul {
@@ -31,7 +33,7 @@
 
       nav li {
         display: inline-block;
-        margin-right: 20px;
+        margin-right: 30px;
       }
 
       nav a {
@@ -41,14 +43,9 @@
         text-decoration: none;
       }
 
-      /* nav a:hover {
-        /* background-color: white; 
-        filter: 8px;
-        color: #17379c;
-      } */
       /* Style the list */
       ul.breadcrumb {
-        padding: 10px 16px;
+        padding: 15px 30px;
         list-style: none;
         background-color: #eee;
       }
@@ -56,12 +53,11 @@
       /* Display list items side by side */
       ul.breadcrumb li {
         display: inline;
-        font-size: 8px;
+        font-size: 12px;
       }
-
       /* Add a slash symbol (/) before/behind each list item */
       ul.breadcrumb li + li:before {
-        padding: 8px;
+        padding: 10px;
         color: black;
         content: "/\00a0";
       }
@@ -77,6 +73,30 @@
         color: #01447e;
         text-decoration: underline;
       }
+
+      #loader {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        border: 5px solid #f3f3f3;
+        animation: spin 1s linear infinite;
+        border-top: 5px solid #0275d8;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
     </style>
   </head>
 
@@ -89,79 +109,98 @@
     <div class="container">
       <nav>
         <ul>
-          <li><a href='/'>NOCAP NOTAMs</a></li>
+          <li><a href="/">NOCAP NOTAMs</a></li>
         </ul>
       </nav>
     </div>
 
     <div class="container">
       <ul class="breadcrumb">
-        <li><a href="#"onclick="window.location.href='/home';">Home</a></li>
+        <li><a href="#" onclick="window.location.href='/home';">Home</a></li>
         <li><a>NOTAMs</a></li>
       </ul>
     </div>
 
-    <div style="margin-top:5%;"></div>
+    <div style="margin-top: 5%"></div>
 
-    <div class="container" style="width:60%;">
+    <div class="container" style="width: 100%">
       <table id="example">
-          <thead>
-              <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">effectiveStart</th>
-                  <th scope="col">effectiveEnd</th>
-                  <th scope="col">text</th>
-              </tr>
-          </thead>
+        <div id="loader"></div>
       </table>
     </div>
 
-<!-- TABLE -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
-<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"></script>
+    <!-- TABLE -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css"
+    />
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://code.jquery.com/jquery-3.5.1.js"
+    ></script>
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"
+    ></script>
 
-<script type="text/javascript" class="init">
+    <script type="text/javascript" class="init">
+      $(document).ready(async function () {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const startingLocation = urlParams.get("startingLocation");
+        const destinationLocation = urlParams.get("destinationLocation");
+        const loader = document.getElementById("loader");
+        console.log(startingLocation);
+        console.log(destinationLocation);
 
-$(document).ready(async function() {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const startingLocation = urlParams.get('startingLocation');
-  const destinationLocation = urlParams.get('destinationLocation');
-  console.log(startingLocation);
-  console.log(destinationLocation);
-  
-  var call1 = await $.ajax({
-         url: '/results/exampleData',
-         data: {location: startingLocation}
-  });
-  var call2 = await $.ajax({
-         url: '/results/exampleData',
-         data: {location: destinationLocation}
-  });
+        var call1 = await $.ajax({
+          url: "/results/exampleData",
+          data: { location: startingLocation },
+        });
+        var call2 = await $.ajax({
+          url: "/results/exampleData",
+          data: { location: destinationLocation },
+        });
 
-  var ldata = call1.data.concat(call2.data);
-
-  // Create a new DataTable object
-  table = $('#example').DataTable({
-       "lengthMenu": [ [15, 50, 100, -1], [15, 50, 100, "All"] ],
-       "pagingType": "simple",
-       scrollY: 400,
-       scrollCollapse: true,
-       order: [[ 0, 'asc' ], [3, 'desc' ]],
-       data: ldata,
-       columns: [
-           { data: 'properties.coreNOTAMData.notam.id' },
-           { data: 'properties.coreNOTAMData.notam.effectiveStart' },
-           { data: 'properties.coreNOTAMData.notam.effectiveEnd' },
-           { data: 'properties.coreNOTAMData.notam.text' }
-         ]
-       })
-});
-
-</script>
+        var ldata = call1.data.concat(call2.data);
+        loader.style.display = "none";
+        // Create a new DataTable object
+        table = $("#example").DataTable({
+          lengthMenu: [
+            [15, 50, 100, -1],
+            [15, 50, 100, "All"],
+          ],
+          pagingType: "simple",
+          scrollY: 400,
+          scrollCollapse: true,
+          order: [
+            [0, "asc"],
+            [3, "desc"],
+          ],
+          data: ldata,
+          columns: [
+            { data: "properties.coreNOTAMData.notam.text" },
+            { data: "properties.coreNOTAMData.notam.effectiveStart" },
+            { data: "properties.coreNOTAMData.notam.effectiveEnd" },
+            { data: "properties.coreNOTAMData.notam.id" },
+          ],
+        });
+        //  notamTranslation[0].formattedText
+      });
+    </script>
 
     <!-- <p style="padding: 5px 15px">
       This example creates a full page background image. Try to resize the
