@@ -180,7 +180,7 @@
       }
     </style>
   </head>
-
+  <script src= /scripts.js></script>
   <body data-new-gr-c-s-check-loaded="14.1098.0" data-gr-ext-installed="">
     <input
       type="hidden"
@@ -202,47 +202,48 @@
       </ul>
     </div>
 
-    <div class="container2">
-      <!-- <form action="#" class="search-form"> -->
-      <select name="options" id="options">
-        <option value="location">location</option>
-      </select>
-      <input
-        type="text"
-        placeholder="Enter Starting Location..."
-        id="startingLocationValue"
-      />
-      <input
-        type="text"
-        placeholder="Enter Destination Location..."
-        id="destinationLocationValue"
-      />
-      <button
-        type="button"
-        class="btn btn-primary btn-lg"
-        onclick="getInputValues()"
-      >
-        Search
-      </button>
-      <script>
-        // Defining custom functions
-        function getInputValues() {
-          var startingLocationValue = document.getElementById(
-            "startingLocationValue"
-          ).value;
-          var destinationLocationValue = document.getElementById(
-            "destinationLocationValue"
-          ).value;
-          window.location.href =
-            "/results/?startingLocation=" +
-            startingLocationValue +
-            "&destinationLocation=" +
-            destinationLocationValue;
-          console.log(startingLocationValue);
-          console.log(destinationLocationValue);
-        }
-      </script>
-      <!-- </form> -->
+    <div class="container">
+      <form action="#" class="search-form">
+        <select id="options">
+          <option value="Dlocation" selected>Domestic Location</option>
+          <option value="ICAOlocation">ICAO Location</option>
+          <option value="L&L">Longitude and Latitude</option>
+          <option value="option#4">Lorem ipsum dolor</option>
+          <option value="option#5">Lorem ipsum dolor</option>
+          <option value="option#5">Lorem ipsum dolor</option>
+        </select>
+        <label id="label1" for="startingLocationValue"> 
+        </label>
+        <input
+          type="text"
+          id="startingLocationValue"
+        />
+        
+        <label id="label2" for="destinationLocationValue"></label>
+        <input
+          type="text"
+          id="destinationLocationValue"
+        />
+        <label id="label3" for="radius"></label>
+        <input id="radius"/>
+        <button
+          type="button"
+          class="btn btn-primary btn-lg"
+          onclick="getInputValues()"
+        >
+          Search
+        </button>
+        <script>
+          // Defining custom functions
+          function getInputValues() {
+            var startingLocationValue = document.getElementById("startingLocationValue").value;
+            var destinationLocationValue = document.getElementById("destinationLocationValue").value;
+            window.location.href='/results/?startingLocation='+ startingLocationValue+'&destinationLocation='+destinationLocationValue;
+            console.log(startingLocationValue);
+            console.log(destinationLocationValue);
+          }
+        </script>
+      </form>
     </div>
 
     <!-- <p style="padding: 5px 15px">

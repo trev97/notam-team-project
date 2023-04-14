@@ -12,6 +12,8 @@ function getDestinationLocation() {
    console.log(destinationLocationVal);
 }
 
+
+
 router.get('/', function(req, res){
    res.sendFile(path.join(__dirname, 'public/homePage.html'))
 });
