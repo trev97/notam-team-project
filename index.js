@@ -40,7 +40,6 @@ const callback = function(response) {
     // result has response body buffer
     s = JSON.parse(result.toString());
     let notams = [];
-    let notams = [];
     for(const notam of s.items){
       text = notam.properties.coreNOTAMData.notamTranslation[0].formattedText;
       if(text != undefined){
