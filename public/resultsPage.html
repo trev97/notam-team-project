@@ -2,102 +2,34 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      body,
-      html {
-        height: 100%;
-        margin: 0;
-        font: 400 12px/1.8 "Lato", sans-serif;
-        color: #000000;
-      }
-      .container {
-        width: 80%;
-        margin: 0 auto;
-      }
-
-      nav {
-        background-color: #17379c;
-        color: white;
-        height: 50px;
-        width: auto;
-        display: flex;
-        justify-content: flex-start;
-        font-size: 15px;
-      }
-
-      nav ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      nav li {
-        display: inline-block;
-        margin-right: 30px;
-      }
-
-      nav a {
-        display: inline-block;
-        color: white;
-        padding: 15px;
-        text-decoration: none;
-      }
-
-      /* Style the list */
-      ul.breadcrumb {
-        padding: 15px 30px;
-        list-style: none;
-        background-color: #eee;
-      }
-
-      /* Display list items side by side */
-      ul.breadcrumb li {
-        display: inline;
-        font-size: 12px;
-      }
-      /* Add a slash symbol (/) before/behind each list item */
-      ul.breadcrumb li + li:before {
-        padding: 10px;
-        color: black;
-        content: "/\00a0";
-      }
-
-      /* Add a color to all links inside the list */
-      ul.breadcrumb li a {
-        color: #0275d8;
-        text-decoration: none;
-      }
-
-      /* Add a color on mouse-over */
-      ul.breadcrumb li a:hover {
-        color: #01447e;
-        text-decoration: underline;
-      }
-
-      #loader {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 9999;
-        border: 5px solid #f3f3f3;
-        animation: spin 1s linear infinite;
-        border-top: 5px solid #0275d8;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-      }
-
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../resultsPage.css">
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css"
+    />
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://code.jquery.com/jquery-3.5.1.js"
+    ></script>
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"
+    ></script>
+    <script type="text/javascript" src="../resultsPage.js"></script>
   </head>
 
   <body data-new-gr-c-s-check-loaded="14.1098.0" data-gr-ext-installed="">
@@ -130,77 +62,7 @@
     </div>
 
     <!-- TABLE -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css"
-    />
-    <script
-      type="text/javascript"
-      language="javascript"
-      src="https://code.jquery.com/jquery-3.5.1.js"
-    ></script>
-    <script
-      type="text/javascript"
-      language="javascript"
-      src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      language="javascript"
-      src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"
-    ></script>
-
-    <script type="text/javascript" class="init">
-      $(document).ready(async function () {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const startingLocation = urlParams.get("startingLocation");
-        const destinationLocation = urlParams.get("destinationLocation");
-        const loader = document.getElementById("loader");
-        console.log(startingLocation);
-        console.log(destinationLocation);
-
-        var call1 = await $.ajax({
-          url: "/results/exampleData",
-          data: { location: startingLocation },
-        });
-        var call2 = await $.ajax({
-          url: "/results/exampleData",
-          data: { location: destinationLocation },
-        });
-
-        var ldata = call1.data.concat(call2.data);
-        loader.style.display = "none";
-        // Create a new DataTable object
-        table = $("#example").DataTable({
-          lengthMenu: [
-            [15, 50, 100, -1],
-            [15, 50, 100, "All"],
-          ],
-          pagingType: "simple",
-          scrollY: 400,
-          scrollCollapse: true,
-          order: [
-            [0, "asc"],
-            [3, "desc"],
-          ],
-          data: ldata,
-          columns: [
-            { data: "properties.coreNOTAMData.notam.text" },
-            { data: "properties.coreNOTAMData.notam.effectiveStart" },
-            { data: "properties.coreNOTAMData.notam.effectiveEnd" },
-            { data: "properties.coreNOTAMData.notam.id" },
-          ],
-        });
-        //  notamTranslation[0].formattedText
-      });
-    </script>
+    
 
     <!-- <p style="padding: 5px 15px">
       This example creates a full page background image. Try to resize the

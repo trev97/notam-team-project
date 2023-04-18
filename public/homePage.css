@@ -1,0 +1,184 @@
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font: 400 12px/1.8 "Lato", sans-serif;
+        color: #000000;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+      }
+      .container2 {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      nav {
+        background-color: #17379c;
+        color: white;
+        height: 50px;
+        width: auto;
+        display: flex;
+        justify-content: flex-start;
+        font-size: 15px;
+      }
+
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      nav li {
+        display: inline-block;
+        margin-right: 30px;
+      }
+
+      nav a {
+        display: inline-block;
+        color: white;
+        padding: 15px;
+        text-decoration: none;
+      }
+
+      /* Style the list */
+      ul.breadcrumb {
+        padding: 15px 30px;
+        list-style: none;
+        background-color: #eee;
+      }
+
+      /* Display list items side by side */
+      ul.breadcrumb li {
+        display: inline;
+        font-size: 12px;
+      }
+      /* Add a slash symbol (/) before/behind each list item */
+      ul.breadcrumb li + li:before {
+        padding: 10px;
+        color: black;
+        content: "/\00a0";
+      }
+
+      /* Add a color to all links inside the list */
+      ul.breadcrumb li a {
+        color: #0275d8;
+        text-decoration: none;
+      }
+
+      /* Add a color on mouse-over */
+      ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
+      }
+      /* Dropdown Button */
+      .dropbtn {
+        background-color: #17379c;
+        color: white;
+        padding: 10px;
+        font-size: 10px;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Dropdown button on hover & focus */
+      .dropbtn:hover,
+      .dropbtn:focus {
+        background-color: #2980b9;
+      }
+
+      /* The container <div> - needed to position the dropdown content */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Dropdown Content (Hidden by Default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Change color of dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+
+      /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+      .show {
+        display: block;
+      }
+
+      .input-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      input[type="text"] {
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        height: 25px;
+        width: 200px;
+        font-size: 12px;
+      }
+
+      button {
+        background-color: #17379c;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 10px 12px;
+        margin-left: 10px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10px;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 10px;
+      }
+
+      input[type="checkbox"] {
+        margin-left: 10px;
+        transform: scale(1.5);
+      }
+      .search-form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      map {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 75%;
+        height: 600px;
+      }

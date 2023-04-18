@@ -1,29 +1,4 @@
-body,
-      html {
-        height: 100%;
-        margin: 0;
-        font: 400 15px/1.8 "Lato", sans-serif;
-        color: #777;
-      }
 
-      .bgimg-1,
-      .bgimg-2,
-      .bgimg-3 {
-        position: relative;
-        opacity: 0.65;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-
-      .background-image {
-
-      }
-      
-      .bgimg-1 {
-        background-image: url("airplane.jpg");
-        height: 100%;
-      }
 
       .caption {
         position: absolute;
@@ -47,4 +22,128 @@ body,
         text-transform: uppercase;
         font: 20px "Lato", sans-serif;
         color: #111;
+      }
+       body,
+      html {
+        height: 100%;
+        margin: 0;
+        font: 400 15px/1.8 "Lato", sans-serif;
+        color: #000000;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      nav {
+        background-color: #17379c;
+        color: white;
+        height: 50px;
+        width: auto;
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      nav li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      nav a {
+        display: inline-block;
+        color: white;
+        padding: 15px;
+        text-decoration: none;
+      }
+
+      /* nav a:hover {
+        /* background-color: white; 
+        filter: 8px;
+        color: #17379c;
+      } */
+
+      .bgimg-1,
+      .bgimg-2,
+      .bgimg-3 {
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .background-image {
+        background-image: url("airplane.jpg");
+        background-size: auto;
+        /* display: block; */
+        /* height: 50vh;
+        width: 50vw; */
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* position: fixed;
+        top: 0;
+        right: 0;
+        z-index: -1; */
+        /* filter: blur(5px); */
+      }
+      .bgimg-1 {
+        background-image: url("airplane.jpg");
+        height: 100%;
+      }
+
+      h3 {
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font: 20px "Lato", sans-serif;
+        color: #111;
+      }
+      .middle-section {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .middle-section img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+      }
+
+      .content {
+        margin-top: 50px;
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 16px;
+        backdrop-filter: blur(10px);
+        backdrop-filter: brightness(150%);
+        backdrop-filter: opacity(20%);
+        border-radius: 16px;
+      }
+
+      .left-section {
+        float: left;
+        width: 50%;
+      }
+
+      .right-section {
+        float: right;
+        width: 50%;
+      }
+      .btn-group-lg > .btn,
+      .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+      }
+
+      .btn-primary {
+        color: #fff;
+        background-color: #17379c;
+        border-color: #17379c;
       }

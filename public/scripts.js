@@ -22,6 +22,28 @@ document.addEventListener("DOMContentLoaded", () => {
             radiusInput.type = "text"
         }
     }
+
+    const map = L.map('map').setView([37.8, -96], 4);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    const airports = [
+  { code: 'LAX', lat: 33.9425, lng: -118.4081 },
+  { code: 'JFK', lat: 40.6413, lng: -73.7781 },
+  // ... Add more airport data here
+];
+    
+    airports.forEach(airport => {
+        const marker = L.marker([airport.lat, airport.lng]).addTo(map);
+        marker.on('click', () => {
+        //alert(`Airport code: ${airport.code}`);
+        marker.bindPopup("<strong>Airport code:</strong> ${airport.code}");
+        });
+  });
+  
+
   });
 
 

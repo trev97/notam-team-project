@@ -1,0 +1,94 @@
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font: 400 12px/1.8 "Lato", sans-serif;
+        color: #000000;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      nav {
+        background-color: #17379c;
+        color: white;
+        height: 50px;
+        width: auto;
+        display: flex;
+        justify-content: flex-start;
+        font-size: 15px;
+      }
+
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      nav li {
+        display: inline-block;
+        margin-right: 30px;
+      }
+
+      nav a {
+        display: inline-block;
+        color: white;
+        padding: 15px;
+        text-decoration: none;
+      }
+
+      /* Style the list */
+      ul.breadcrumb {
+        padding: 15px 30px;
+        list-style: none;
+        background-color: #eee;
+      }
+
+      /* Display list items side by side */
+      ul.breadcrumb li {
+        display: inline;
+        font-size: 12px;
+      }
+      /* Add a slash symbol (/) before/behind each list item */
+      ul.breadcrumb li + li:before {
+        padding: 10px;
+        color: black;
+        content: "/\00a0";
+      }
+
+      /* Add a color to all links inside the list */
+      ul.breadcrumb li a {
+        color: #0275d8;
+        text-decoration: none;
+      }
+
+      /* Add a color on mouse-over */
+      ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
+      }
+
+      #loader {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        border: 5px solid #f3f3f3;
+        animation: spin 1s linear infinite;
+        border-top: 5px solid #0275d8;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
