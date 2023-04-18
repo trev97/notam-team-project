@@ -50,7 +50,7 @@ router.get("/exampleData", function (req, res) {
          console.log(`Python script exited with code ${code}`);
 
          // Parse the predicted categories as a JSON array
-         let categories = JSON.parse(predictedCategories);
+         
 
          // Add the predicted categories to the response from the API
          let items = response.data.items.map((item, index) => {
