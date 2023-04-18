@@ -34,8 +34,12 @@ router.get("/exampleData", function (req, res) {
        });
        //console.log(notamTexts);
 
-       const pythonScript = spawn('python', ['notam_cat.py']);
-
+       const pythonScript = spawn('python3', ['notam_cat.py'],{
+        cwd:'/home/trev97/notam-team-project'
+       });
+       pythonScript.on('error',(err) => {
+        console.error('Failed to start subprocess.\n'+err);
+      }); 
        // Pass the notam texts to the Python script through standard input
        pythonScript.stdin.write(JSON.stringify(notamTexts));
        pythonScript.stdin.end();
