@@ -3,6 +3,7 @@ const path = require('path')
 var router = express.Router();
 const axios = require("axios");
 
+
 router.get('/', function(req, res){
    res.sendFile(path.join(__dirname, 'public/resultsPage.html'))
 });
@@ -10,8 +11,10 @@ router.post('/', function(req, res){
    res.send('POST route on results.');
 });
 
-router.get("/exampleData", function (req, res) {
+const { spawn } = require('child_process');
 
+router.get("/exampleData", function (req, res) {
+  
    let urlParams = new URLSearchParams(req.query);
  
    let x = 'https://external-api.faa.gov/notamapi/v1/notams?domesticLocation=' + urlParams.get('location') + '&sortBy=notamType';
@@ -23,11 +26,45 @@ router.get("/exampleData", function (req, res) {
      } 
    })
      .then(response => {
-       // send the collected data back to the client-side DataTable
-       //console.log(response);
-       res.json({
-         "data": response.data.items
-       })
+       // Extract the notam text and pass it to the Python script
+       let notamTexts = [];
+       response.data.items.forEach(item => {
+        let notamText = item.properties.coreNOTAMData.notam.text;
+        notamTexts.push(notamText);
+       });
+       //console.log(notamTexts);
+
+       const pythonScript = spawn('python', ['notam_cat.py']);
+
+       // Pass the notam texts to the Python script through standard input
+       pythonScript.stdin.write(JSON.stringify(notamTexts));
+       pythonScript.stdin.end();
+
+       // Receive the predicted categories from the Python script through standard output
+       let predictedCategories = '';
+       pythonScript.stdout.on('data', (data) => {
+         predictedCategories += data.toString();
+       });
+
+       pythonScript.on('close', (code) => {
+         console.log(`Python script exited with code ${code}`);
+
+         // Parse the predicted categories as a JSON array
+         let categories = JSON.parse(predictedCategories);
+
+         // Add the predicted categories to the response from the API
+         let items = response.data.items.map((item, index) => {
+           return {
+             ...item,
+             category: categories[index]
+           };
+         });
+
+         // Send the combined response back to the client-side DataTable
+         res.json({
+           "data": items
+         })
+       });
      })
      .catch(function (error) {
         // handle error
