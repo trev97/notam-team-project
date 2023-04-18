@@ -28,6 +28,7 @@ const res_query = querystring.stringify(searchParams)
 init.path += '?'+ res_query
 console.log(init)
 
+
 const callback = function(response) {
   
   let result = Buffer.alloc(0);
@@ -38,6 +39,7 @@ const callback = function(response) {
   response.on('end', function() {
     // result has response body buffer
     s = JSON.parse(result.toString());
+    let notams = [];
     let notams = [];
     for(const notam of s.items){
       text = notam.properties.coreNOTAMData.notamTranslation[0].formattedText;
