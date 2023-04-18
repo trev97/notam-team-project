@@ -34,9 +34,7 @@ router.get("/exampleData", function (req, res) {
        });
        //console.log(notamTexts);
 
-       const pythonScript = spawn('python3', ['notam_cat.py'],{
-        cwd:'/home/trev97/notam-team-project'
-       });
+       const pythonScript = spawn('python3', ['notam_cat.py']);
        pythonScript.on('error',(err) => {
         console.error('Failed to start subprocess.\n'+err);
       }); 
