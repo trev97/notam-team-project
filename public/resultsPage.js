@@ -28,7 +28,7 @@ $(document).ready(async function () {
     downloadLink.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(textData))
     downloadLink.setAttribute("download", "notam_data.csv")
     document.body.appendChild(downloadLink)
-    downloadLink.click();
+    //downloadLink.click();
 
     loader.style.display = "none";
     // Create a new DataTable object
