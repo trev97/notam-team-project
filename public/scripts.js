@@ -37,10 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     airports.forEach(airport => {
         const marker = L.marker([airport.lat, airport.lng]).addTo(map);
-        marker.on('click', () => {
-        //alert(`Airport code: ${airport.code}`);
-        marker.bindPopup("<strong>Airport code:</strong> ${airport.code}");
-        });
+        marker.bindPopup("<strong>Airport code:</strong>"+ airport.code);
   });
   
 
