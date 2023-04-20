@@ -7,6 +7,10 @@
         /* background-image: url("airplane.jpg"); */
         background-size: cover;
       }
+      h1 {text-align: center;
+        display: none;
+      }
+
       .container {
         width: 80%;
         margin: 0 auto;
