@@ -15,7 +15,7 @@ $(document).ready(async function () {
       url: "/results/exampleData",
       data: { location: destinationLocation },
     });
-
+    loader.style.display = "none";
     var ldata = call1.data.concat(call2.data);
     const notamDataArray = ldata.map((jsonObject) => {
       const notamData = jsonObject.properties.coreNOTAMData.notamTranslation[0].formattedText
@@ -46,10 +46,27 @@ $(document).ready(async function () {
       ],
       data: ldata,
       columns: [
-        { data: "properties.coreNOTAMData.notamTranslation[0].formattedText" },
-        { data: "properties.coreNOTAMData.notam.effectiveStart" },
-        { data: "properties.coreNOTAMData.notam.effectiveEnd" },
-        { data: "properties.coreNOTAMData.notam.id" },
+        // { data: "properties.coreNOTAMData.notamTranslation[0].formattedText" },
+        { data: 'properties.coreNOTAMData.notam.text' },
+        { data: "category" },
+        {
+          data: function(row) {
+            return row.properties.coreNOTAMData.notam.effectiveStart.substring(0, 10);
+          }
+        },
+        {
+          data: function(row) {
+            return row.properties.coreNOTAMData.notam.effectiveEnd.substring(0, 10);
+          }
+        },
+        // { data: "properties.coreNOTAMData.notam.effectiveStart".replace('T*', "") },
+        // { data: "properties.coreNOTAMData.notam.effectiveEnd" },
+        // { data: "properties.coreNOTAMData.notam.id" },
+        {
+          data: function(row) {
+            return row.properties.coreNOTAMData.notam.id.split('_').pop();
+          }
+        },
       ],
     });
     //  notamTranslation[0].formattedText
