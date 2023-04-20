@@ -10,12 +10,21 @@ $(document).ready(async function () {
     var call1 = await $.ajax({
       url: "/results/exampleData",
       data: { location: startingLocation },
+      error: function(jqXHR, textStatus, errorThrown){
+        if(jqXHR.status ==400){
+          const errorData = JSON.parse(jqXHR.responseText)
+          alert('Error:' + errorData)
+        }
+      }
     });
     var call2 = await $.ajax({
       url: "/results/exampleData",
       data: { location: destinationLocation },
     });
+
     loader.style.display = "none";
+    // Used to download a csv of the raw formatted text in csv format.
+
     //var ldata = call1.data.concat(call2.data);
     //const notamDataArray = call1.map((jsonObject) => {
     //  const notamData = jsonObject.properties.coreNOTAMData.notamTranslation[0].formattedText
@@ -41,6 +50,7 @@ $(document).ready(async function () {
       scrollY: 400,
       scrollCollapse: true,
       order: [],
+      caption: destinationLocation,
       data: call1.data,
       columns: [
         {
@@ -81,6 +91,7 @@ $(document).ready(async function () {
       scrollY: 400,
       scrollCollapse: true,
       order: [],
+      caption: startingLocation,
       data: call2.data,
       columns: [
         // { data: "properties.coreNOTAMData.notamTranslation[0].formattedText" },

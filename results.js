@@ -13,12 +13,18 @@ router.post('/', function(req, res){
 
 const { spawn } = require('child_process');
 
+
 router.get("/exampleData", function (req, res) {
-  
+
    let urlParams = new URLSearchParams(req.query);
- 
-   let x = 'https://external-api.faa.gov/notamapi/v1/notams?domesticLocation=' + urlParams.get('location') + '&sortBy=notamType';
-   
+   const regExpr = /^[A-Z]{3}$/g
+   let x
+    if(regExpr.test(urlParams.get('location'))){
+      x = 'https://external-api.faa.gov/notamapi/v1/notams?domesticLocation=' + urlParams.get('location') + '&pageSize=1000';
+    }
+    else{
+      return res.status(400).json('Incorrect Airport code Format')
+    }
    // Make a request
    axios.get(x, {headers: {
      'client_id': '4e25e8c041d142d9b263f03aa74be97e',
