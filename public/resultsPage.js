@@ -16,23 +16,23 @@ $(document).ready(async function () {
       data: { location: destinationLocation },
     });
     loader.style.display = "none";
-    var ldata = call1.data.concat(call2.data);
-    const notamDataArray = ldata.map((jsonObject) => {
-      const notamData = jsonObject.properties.coreNOTAMData.notamTranslation[0].formattedText
-      return notamData ? notamData.replace(/\n/g, "") : null
-    })
+    //var ldata = call1.data.concat(call2.data);
+    //const notamDataArray = call1.map((jsonObject) => {
+    //  const notamData = jsonObject.properties.coreNOTAMData.notamTranslation[0].formattedText
+    //  return notamData ? notamData.replace(/\n/g, "") : null
+    //})
       
     
-    const textData = notamDataArray.join("\n");
-    const downloadLink = document.createElement("a");
-    downloadLink.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(textData))
-    downloadLink.setAttribute("download", "notam_data.csv")
-    document.body.appendChild(downloadLink)
+    //const textData = notamDataArray.join("\n");
+    //const downloadLink = document.createElement("a");
+    //downloadLink.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(textData))
+    //downloadLink.setAttribute("download", "notam_data.csv")
+    //document.body.appendChild(downloadLink)
     //downloadLink.click();
-
+    
     loader.style.display = "none";
     // Create a new DataTable object
-    table = $("#example").DataTable({
+    table = $("#departureNOTAMS").DataTable({
       lengthMenu: [
         [15, 50, 100, -1],
         [15, 50, 100, "All"],
@@ -40,11 +40,48 @@ $(document).ready(async function () {
       pagingType: "simple",
       scrollY: 400,
       scrollCollapse: true,
-      order: [
-        [0, "asc"],
-        [3, "desc"],
+      order: [],
+      data: call1.data,
+      columns: [
+        {
+          data: "properties.coreNOTAMData.notam.text",
+          render: function(data, type, row) {
+            if (data.includes("CANCELED")) {
+              return '<span class="text-canceled">' + data + '</span>';
+            } else {
+              return data;
+            }
+          }
+        },
+        { data: "category" },
+        {
+          data: function(row) {
+            return row.properties.coreNOTAMData.notam.effectiveStart.substring(0, 10);
+          }
+        },
+        {
+          data: function(row) {
+            return row.properties.coreNOTAMData.notam.effectiveEnd.substring(0, 10);
+          }
+        },
+        {
+          data: function(row) {
+            return row.properties.coreNOTAMData.notam.id.split('_').pop();
+          }
+        },
       ],
-      data: ldata,
+    });
+
+    table = $("#arrivalNOTAMS").DataTable({
+      lengthMenu: [
+        [15, 50, 100, -1],
+        [15, 50, 100, "All"],
+      ],
+      pagingType: "simple",
+      scrollY: 400,
+      scrollCollapse: true,
+      order: [],
+      data: call2.data,
       columns: [
         // { data: "properties.coreNOTAMData.notamTranslation[0].formattedText" },
         // { data: 'properties.coreNOTAMData.notam.text' },
