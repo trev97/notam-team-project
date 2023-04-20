@@ -6,7 +6,8 @@ $(document).ready(async function () {
     const loader = document.getElementById("loader");
     console.log(startingLocation);
     console.log(destinationLocation);
-
+    document.getElementById("startingLocation").innerHTML = startingLocation;
+    document.getElementById("destinationLocation").innerHTML = destinationLocation;;
     var call1 = await $.ajax({
       url: "/results/exampleData",
       data: { location: startingLocation },

@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+  <style>
+    h1 {text-align: center;}
+  </style>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="../resultsPage.css">
@@ -19,7 +22,8 @@
       language="javascript"
       src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"
     ></script>
-    <script type="text/javascript" src="../resultsPage.js"></script>
+    <script type="text/javascript" src="../resultsPage.js">
+    </script>
   </head>
 
   <body data-new-gr-c-s-check-loaded="14.1098.0" data-gr-ext-installed="">
@@ -42,8 +46,11 @@
         <li><a>NOTAMs</a></li>
       </ul>
     </div>
-
+    
     <div style="margin-top: 5%"></div>
+    <header>
+      <h1>DEPARTURE: <span id = "destinationLocation"></span></h1>
+    </header>
 
     <div class="table">
       <div id="loader"></div>
@@ -59,7 +66,11 @@
           </thead>
       </table>
     </div>
-
+    <br><br>
+    <header>
+      <h1>ARRIVAL: <span id = "startingLocation"></span></h1>
+    </header>
+    
     <div class="table">
       <table id="arrivalNOTAMS" class="display">
           <thead>
