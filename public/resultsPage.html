@@ -3,17 +3,12 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="../resultsPage.css">
-    
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css"
-    />
+
+    <link 
+      rel="stylesheet" 
+      type="text/css" 
+      href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"
+    >
     <script
       type="text/javascript"
       language="javascript"
@@ -22,12 +17,7 @@
     <script
       type="text/javascript"
       language="javascript"
-      src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      language="javascript"
-      src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"
+      src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"
     ></script>
     <script type="text/javascript" src="../resultsPage.js"></script>
   </head>
@@ -55,9 +45,9 @@
 
     <div style="margin-top: 5%"></div>
 
-    <div class="container" style="width: 100%">
+    <div class="table">
       <div id="loader"></div>
-      <table id="example">
+      <table id="departureNOTAMS" class="display">
           <thead>
               <tr>
                   <th scope="col">text</th>
@@ -70,50 +60,22 @@
       </table>
     </div>
 
-    <!-- TABLE -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
-<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"></script>
+    <div class="table">
+      <table id="arrivalNOTAMS" class="display">
+          <thead>
+              <tr>
+                  <th scope="col">text</th>
+                  <th scope="col">category</th>
+                  <th scope="col">effectiveStart</th>
+                  <th scope="col">effectiveEnd</th>
+                  <th scope="col">ID</th>
+              </tr>
+          </thead>
+      </table>
+    </div>
 
 <script type="text/javascript" class="init">
-    
-// $(document).ready(async function() {
-//   const queryString = window.location.search;
-//   const urlParams = new URLSearchParams(queryString);
-//   const startingLocation = urlParams.get('startingLocation');
-//   const destinationLocation = urlParams.get('destinationLocation');
-//   console.log(startingLocation);
-//   console.log(destinationLocation);
-  
-//   var call1 = await $.ajax({
-//          url: '/results/exampleData',
-//          data: {location: startingLocation}
-//   });
-//   var call2 = await $.ajax({
-//          url: '/results/exampleData',
-//          data: {location: destinationLocation}
-//   });
-//   loader.style.display = "none";
-//   var ldata = call1.data.concat(call2.data);
-//   // Create a new DataTable object
-//   table = $('#example').DataTable({
-//   "lengthMenu": [ [15, 50, 100, -1], [15, 50, 100, "All"] ],
-//   "pagingType": "simple",
-//   scrollY: 400,
-//   scrollCollapse: true,
-//   order: [[ 0, 'asc' ], [3, 'desc' ]],
-//   data: ldata,
-//   columns: [
-//     { data: 'properties.coreNOTAMData.notam.text' },
-//     { data: 'category' },
-//     { data: 'properties.coreNOTAMData.notam.effectiveStart' },
-//     { data: 'properties.coreNOTAMData.notam.effectiveEnd' },
-//     { data: 'properties.coreNOTAMData.notam.id' }
-//   ]
-// })
-// });
+
 
 </script>
 
