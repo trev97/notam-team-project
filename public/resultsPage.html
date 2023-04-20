@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <style>
-    h1 {text-align: center;}
+    h1 {text-align: center;
+    display: none;}
   </style>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -49,7 +50,7 @@
     
     <div style="margin-top: 5%"></div>
     <header>
-      <h1>DEPARTURE: <span id = "destinationLocation"></span></h1>
+      <h1 id = "departureHeader">DEPARTURE: <span id = "destinationLocation"></span></h1>
     </header>
 
     <div class="table">
@@ -68,7 +69,7 @@
     </div>
     <br><br>
     <header>
-      <h1>ARRIVAL: <span id = "startingLocation"></span></h1>
+      <h1 id="arrivalHeader">ARRIVAL: <span id = "startingLocation"></span></h1>
     </header>
     
     <div class="table">

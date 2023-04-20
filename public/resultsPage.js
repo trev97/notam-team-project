@@ -4,6 +4,8 @@ $(document).ready(async function () {
     const startingLocation = urlParams.get("startingLocation");
     const destinationLocation = urlParams.get("destinationLocation");
     const loader = document.getElementById("loader");
+    const departureHeader = document.getElementById("departureHeader");
+    const arrivalHeader = document.getElementById("arrivalHeader");
     console.log(startingLocation);
     console.log(destinationLocation);
     document.getElementById("startingLocation").innerHTML = startingLocation;
@@ -41,6 +43,8 @@ $(document).ready(async function () {
     //downloadLink.click();
     
     loader.style.display = "none";
+    departureHeader.style.display = "block";
+    arrivalHeader.style.display = "block";
     // Create a new DataTable object
     table = $("#departureNOTAMS").DataTable({
       lengthMenu: [
