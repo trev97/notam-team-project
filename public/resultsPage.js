@@ -47,7 +47,17 @@ $(document).ready(async function () {
       data: ldata,
       columns: [
         // { data: "properties.coreNOTAMData.notamTranslation[0].formattedText" },
-        { data: 'properties.coreNOTAMData.notam.text' },
+        // { data: 'properties.coreNOTAMData.notam.text' },
+        {
+          data: "properties.coreNOTAMData.notam.text",
+          render: function(data, type, row) {
+            if (data.includes("CANCELED")) {
+              return '<span class="text-canceled">' + data + '</span>';
+            } else {
+              return data;
+            }
+          }
+        },
         { data: "category" },
         {
           data: function(row) {

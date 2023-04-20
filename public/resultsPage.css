@@ -68,6 +68,9 @@
         color: #01447e;
         text-decoration: underline;
       }
+      .text-canceled {
+        color: rgb(255, 0, 0);
+      }
 
       #loader {
         display: block;
