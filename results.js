@@ -61,11 +61,12 @@ router.get("/exampleData", function (req, res) {
          let categories = JSON.parse(predictedCategories);
          // Add the predicted categories to the response from the API
          let items = response.data.items.map((item, index) => {
-           return {
-             ...item,
-             category: categories[index]
-           };
-         });
+          return {
+            ...item,
+            category: categories[index][0], // Get the category from the tuple
+            criticality: categories[index][1] // Get the criticality score from the tuple
+          };
+        });
 
          // Send the combined response back to the client-side DataTable
          res.json({
