@@ -17,6 +17,22 @@
         background-color: rgba(255, 255, 255, 0.9);
         margin: 0 auto;
       }
+      th {
+        text-align: center;
+        font-weight: bold;
+      }
+      .dataTables_length {
+        margin: 12px;
+
+      }
+      .dataTables_filter{
+        margin-top: 12px;
+        margin-right: 25px;
+      }
+
+      .dataTables_wrapper {
+        margin-bottom: 20px;
+      }
 
       nav {
         background-color: #17379c;
