@@ -69,6 +69,7 @@ $(document).ready(async function () {
           }
         },
         { data: "category" },
+        { data: "criticality"},
         {
           data: function(row) {
             return row.properties.coreNOTAMData.notam.effectiveStart.substring(0, 10);
@@ -112,6 +113,7 @@ $(document).ready(async function () {
           }
         },
         { data: "category" },
+        { data: "criticality"},
         {
           data: function(row) {
             return row.properties.coreNOTAMData.notam.effectiveStart.substring(0, 10);
