@@ -31,7 +31,7 @@ npm install
 cp .env_default .env
 ```
 
-4. Obtain the `client-id` and `client-secret` from the [FAA NOTAM API](https://www.faa.gov/developers/). Add these credentials to the `.env` file:
+4. Obtain the `client-id` and `client-secret` from the [FAA NOTAM API](https://api.faa.gov/s/). Add these credentials to the `.env` file:
 
 ```
 CLIENT_ID=your_client_id
