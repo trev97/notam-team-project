@@ -25,16 +25,16 @@ categories = model.predict(notams_vectorized)
 
 # Define criticality scores for categories
 criticality_scores = {
-    'GC': 1,
-    'APC': 2,
-    'F': 3,
-    'WL': 4,
-    'W': 5,
+    'GC': 9,
+    'APC': 10,
+    'F': 8,
+    'WL': 1,
+    'W': 4,
     'C': 6,
-    'TFR': 7,
-    'NAV': 8,
-    'PRO': 9,
-    'UAV': 10
+    'TFR': 9,
+    'NAV': 7,
+    'PRO': 7,
+    'UAV': 5
 }
 
 # Assign criticality scores based on predicted categories
