@@ -2,6 +2,9 @@ var express = require('express');
 const path = require('path')
 var router = express.Router();
 const axios = require("axios");
+require('dotenv').config()
+const client_id = process.env.client_id
+const client_secret = process.env.client_secret
 
 
 router.get('/', function(req, res){
@@ -27,8 +30,8 @@ router.get("/exampleData", function (req, res) {
     }
    // Make a request
    axios.get(x, {headers: {
-     'client_id': '4e25e8c041d142d9b263f03aa74be97e',
-     'client_secret': 'B7282F38DC454fBFBFF80774Ec4D1772'
+     'client_id': client_id,
+     'client_secret': client_secret
      } 
    })
      .then(response => {
