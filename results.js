@@ -43,7 +43,7 @@ router.get("/exampleData", function (req, res) {
        });
        //console.log(notamTexts);
 
-       const pythonScript = spawn('python', ['notam_cat.py']);
+       const pythonScript = spawn('python3', ['notam_cat.py']);
        console.time('Python script execution time');
        pythonScript.on('error',(err) => {
         console.error('Failed to start subprocess.\n'+err);
