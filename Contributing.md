@@ -1,4 +1,4 @@
-# Contributing to [Project Name]
+# Contributing to Nocap-NOTAM
 
 We appreciate your interest in contributing to Nocap-NOTAM! While we may not actively develop the project in the future, we still welcome contributions from the community.
 
