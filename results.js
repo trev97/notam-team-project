@@ -40,7 +40,8 @@ router.get("/exampleData", function (req, res) {
        });
        //console.log(notamTexts);
 
-       const pythonScript = spawn('python3', ['notam_cat.py']);
+       const pythonScript = spawn('python', ['notam_cat.py']);
+       console.time('Python script execution time');
        pythonScript.on('error',(err) => {
         console.error('Failed to start subprocess.\n'+err);
       }); 
@@ -56,6 +57,7 @@ router.get("/exampleData", function (req, res) {
 
        pythonScript.on('close', (code) => {
          console.log(`Python script exited with code ${code}`);
+         console.timeEnd('Python script execution time');
 
          // Parse the predicted categories as a JSON array
          let categories = JSON.parse(predictedCategories);
