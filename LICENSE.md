@@ -1,6 +1,6 @@
-MIT License
+# MIT License
 
-Copyright (c) 2023 Trevor Scogin
+Copyright (c) 2023 Nocap-NOTAMs (Trevor Scogin, Michael Nguyen, Kevin Tran, Briten Green, Mihn Dihn)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,4 +1,6 @@
 pandas
 joblib
 sklearn
-scikit-learn
+pickle
+sys 
+json

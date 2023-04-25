@@ -4,9 +4,13 @@
         margin: 0;
         font: 400 12px/1.8 "Lato", sans-serif;
         color: #000000;
-        background-image: url("airplane.jpg");
+        /* background-image: url("airplane.jpg"); */
         background-size: cover;
       }
+      h1 {text-align: center;
+        display: none;
+      }
+
       .container {
         width: 80%;
         margin: 0 auto;

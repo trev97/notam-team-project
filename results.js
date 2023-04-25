@@ -2,6 +2,9 @@ var express = require('express');
 const path = require('path')
 var router = express.Router();
 const axios = require("axios");
+require('dotenv').config()
+const client_id = process.env.client_id
+const client_secret = process.env.client_secret
 
 
 router.get('/', function(req, res){
@@ -27,8 +30,8 @@ router.get("/exampleData", function (req, res) {
     }
    // Make a request
    axios.get(x, {headers: {
-     'client_id': '4e25e8c041d142d9b263f03aa74be97e',
-     'client_secret': 'B7282F38DC454fBFBFF80774Ec4D1772'
+     'client_id': client_id,
+     'client_secret': client_secret
      } 
    })
      .then(response => {
@@ -41,6 +44,7 @@ router.get("/exampleData", function (req, res) {
        //console.log(notamTexts);
 
        const pythonScript = spawn('python3', ['notam_cat.py']);
+       console.time('Python script execution time');
        pythonScript.on('error',(err) => {
         console.error('Failed to start subprocess.\n'+err);
       }); 
@@ -56,16 +60,18 @@ router.get("/exampleData", function (req, res) {
 
        pythonScript.on('close', (code) => {
          console.log(`Python script exited with code ${code}`);
+         console.timeEnd('Python script execution time');
 
          // Parse the predicted categories as a JSON array
          let categories = JSON.parse(predictedCategories);
          // Add the predicted categories to the response from the API
          let items = response.data.items.map((item, index) => {
-           return {
-             ...item,
-             category: categories[index]
-           };
-         });
+          return {
+            ...item,
+            category: categories[index][0], // Get the category from the tuple
+            criticality: categories[index][1] // Get the criticality score from the tuple
+          };
+        });
 
          // Send the combined response back to the client-side DataTable
          res.json({

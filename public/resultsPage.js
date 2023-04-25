@@ -4,9 +4,12 @@ $(document).ready(async function () {
     const startingLocation = urlParams.get("startingLocation");
     const destinationLocation = urlParams.get("destinationLocation");
     const loader = document.getElementById("loader");
+    const departureHeader = document.getElementById("departureHeader");
+    const arrivalHeader = document.getElementById("arrivalHeader");
     console.log(startingLocation);
     console.log(destinationLocation);
-
+    document.getElementById("startingLocation").innerHTML = startingLocation;
+    document.getElementById("destinationLocation").innerHTML = destinationLocation;;
     var call1 = await $.ajax({
       url: "/results/exampleData",
       data: { location: startingLocation },
@@ -48,6 +51,8 @@ $(document).ready(async function () {
     //downloadLink.click();
     
     loader.style.display = "none";
+    departureHeader.style.display = "block";
+    arrivalHeader.style.display = "block";
     // Create a new DataTable object
     table = $("#departureNOTAMS").DataTable({
       lengthMenu: [
@@ -57,7 +62,7 @@ $(document).ready(async function () {
       pagingType: "simple",
       scrollY: 400,
       scrollCollapse: true,
-      order: [],
+      order: [[ 2, 'desc' ]],
       caption: destinationLocation,
       data: call1.data,
       columns: [
@@ -72,6 +77,7 @@ $(document).ready(async function () {
           }
         },
         { data: "category" },
+        { data: "criticality"},
         {
           data: function(row) {
             return row.properties.coreNOTAMData.notam.effectiveStart.substring(0, 10);
@@ -98,7 +104,8 @@ $(document).ready(async function () {
       pagingType: "simple",
       scrollY: 400,
       scrollCollapse: true,
-      order: [],
+      order: [[ 2, 'desc' ]],
+      caption: startingLocation,
       data: call2.data,
       columns: [
         // { data: "properties.coreNOTAMData.notamTranslation[0].formattedText" },
@@ -114,6 +121,7 @@ $(document).ready(async function () {
           }
         },
         { data: "category" },
+        { data: "criticality"},
         {
           data: function(row) {
             return row.properties.coreNOTAMData.notam.effectiveStart.substring(0, 10);
