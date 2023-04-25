@@ -54,7 +54,7 @@ $(document).ready(async function () {
       pagingType: "simple",
       scrollY: 400,
       scrollCollapse: true,
-      order: [],
+      order: [[ 2, 'desc' ]],
       caption: destinationLocation,
       data: call1.data,
       columns: [
@@ -96,7 +96,7 @@ $(document).ready(async function () {
       pagingType: "simple",
       scrollY: 400,
       scrollCollapse: true,
-      order: [],
+      order: [[ 2, 'desc' ]],
       caption: startingLocation,
       data: call2.data,
       columns: [
