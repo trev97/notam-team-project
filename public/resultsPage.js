@@ -86,6 +86,19 @@ $(document).ready(async function () {
           }
         },
       ],
+        createdRow: function(row, data1, dataIndex) {
+        // Add a title attribute to the cells in the specific column
+        // Replace '1' with the zero-based index of the desired column
+        tooltip = ''
+        switch (data1.category) {
+          case "PRO": tooltip="Public relational officer";break;
+          case "F": tooltip="Failure";break;
+          case "GC": tooltip="General Closure";break;
+          case "C": tooltip= "Closure";break;
+          default: tooltip="non"
+        }
+        $(row).find('td:eq(1)').attr('title', tooltip);
+      }
     });
 
     table = $("#arrivalNOTAMS").DataTable({
