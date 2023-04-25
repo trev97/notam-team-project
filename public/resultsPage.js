@@ -11,15 +11,23 @@ $(document).ready(async function () {
       url: "/results/exampleData",
       data: { location: startingLocation },
       error: function(jqXHR, textStatus, errorThrown){
-        if(jqXHR.status ==400){
+        if(jqXHR.status == 400){
           const errorData = JSON.parse(jqXHR.responseText)
           alert('Error:' + errorData)
+          
         }
       }
     });
     var call2 = await $.ajax({
       url: "/results/exampleData",
       data: { location: destinationLocation },
+      error: function(jqXHR, textStatus, errorThrown){
+        if(jqXHR.status ==400){
+          const errorData = JSON.parse(jqXHR.responseText)
+          alert('Error:' + errorData)
+          
+        }
+      }
     });
 
     loader.style.display = "none";
@@ -91,7 +99,6 @@ $(document).ready(async function () {
       scrollY: 400,
       scrollCollapse: true,
       order: [],
-      caption: startingLocation,
       data: call2.data,
       columns: [
         // { data: "properties.coreNOTAMData.notamTranslation[0].formattedText" },
@@ -126,6 +133,18 @@ $(document).ready(async function () {
           }
         },
       ],
-    });
-    //  notamTranslation[0].formattedText
+    createdRow: function(row, data1, dataIndex) {
+        // Add a title attribute to the cells in the specific column
+        // Replace '1' with the zero-based index of the desired column
+        tooltip = ''
+        switch (data1.category) {
+          case "PRO": tooltip="Public relational officer";break;
+          case "F": tooltip="Failure";break;
+          case "GC": tooltip="General Closure";break;
+          case "C": tooltip= "Closure";break;
+          default: tooltip="non"
+        }
+        $(row).find('td:eq(1)').attr('title', tooltip);
+      }
   });
+});
