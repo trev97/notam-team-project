@@ -91,10 +91,16 @@ $(document).ready(async function () {
         // Replace '1' with the zero-based index of the desired column
         tooltip = ''
         switch (data1.category) {
-          case "PRO": tooltip="Public relational officer";break;
-          case "F": tooltip="Failure";break;
+          case "APC": tooltip="Airport Closure";break;
+          case "PRO": tooltip="Procedure";break;
+          case "F": tooltip="Fuel";break;
           case "GC": tooltip="General Closure";break;
-          case "C": tooltip= "Closure";break;
+          case "C": tooltip= "Construction";break;
+          case "WL": tooltip="Wildlife";break;
+          case "W": tooltip="Weather";break;
+          case "NAV": tooltip="Navigation";break;
+          case "TFR": tooltip="Temporary Flight Restriction";break;
+          case "UAV": tooltip="Unmanned Aerial Vehicle";break;
           default: tooltip="non"
         }
         $(row).find('td:eq(1)').attr('title', tooltip);
@@ -151,10 +157,16 @@ $(document).ready(async function () {
         // Replace '1' with the zero-based index of the desired column
         tooltip = ''
         switch (data1.category) {
-          case "PRO": tooltip="Public relational officer";break;
-          case "F": tooltip="Failure";break;
+          case "APC": tooltip="Airport Closure";break;
+          case "PRO": tooltip="Procedure";break;
+          case "F": tooltip="Fuel";break;
           case "GC": tooltip="General Closure";break;
-          case "C": tooltip= "Closure";break;
+          case "C": tooltip= "Construction";break;
+          case "WL": tooltip="Wildlife";break;
+          case "W": tooltip="Weather";break;
+          case "NAV": tooltip="Navigation";break;
+          case "TFR": tooltip="Temporary Flight Restriction";break;
+          case "UAV": tooltip="Unmanned Aerial Vehicle";break;
           default: tooltip="non"
         }
         $(row).find('td:eq(1)').attr('title', tooltip);
